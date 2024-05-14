@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Datos del Estudiante</title>
+
+<style type="text/css">
+	span {
+		display: inline-block;
+		width: 200px;
+		text-align: left;
+	}
+</style>
+
+</head>
+<body>
+	<div align="center">
+		<h2>Datos del Estudiante</h2>
+		<span>Cedula</span><span th:text="${estu.cedula}"></span><br/>
+		<span>Nombre</span><span th:text="${estu.nombre}"></span><br/>
+		<span>Correo</span><span th:text="${estu.correo}"></span><br/>
+	</div>
+</body>
+</html>

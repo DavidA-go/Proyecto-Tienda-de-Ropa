@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/plantilla :: head">
+    <title>Lista de Proveedores</title>
+</head>
+<body>
+	<header th:replace="layout/plantilla :: header"></header>
+    <div align="center" class="container">
+		<h1>Listado de Proveedores</h1>
+            <a href="/views/proveedor/new" class="btn btn-success">Crear un Proveedor</a ></br></br>
+            <table border="1" class="table table-striped">
+			<thead>
+				<tr>
+					<td>Nit</td>
+					<td>Nombre</td>
+					<td>Ciudad</td>
+					<td>Dirección</td>
+					<td>Teléfono</td>
+					<td>Acciones</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="proveedor : ${listaProveedores}">
+					<td th:text="${proveedor.nit}"></td >
+					<td th:text="${proveedor.nombre}"></td >
+					<td th:text="${proveedor.ciudad}"></td >
+					<td th:text="${proveedor.direccion}"></td >
+					<td th:text="${proveedor.telefono}"></td >
+					<td>
+						<a th:href="@{'/views/proveedor/listar/' + ${proveedor.nit}}" class="btn btn-info">Editar</a>
+						&nbsp;&nbsp;&nbsp;
+						<a th:href="@{'/views/proveedor/delete/' + ${proveedor.nit}}" class="btn btn-danger">Eliminar</a>
+					</td>
+				</tr >
+			</tbody>
+		</table >
+	</div >
+	<footer th:replace="layout/plantilla :: footer"></footer>
+</body>
+</html>

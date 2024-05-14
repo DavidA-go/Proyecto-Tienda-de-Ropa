@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/plantilla :: head">
+    <title>Tipos de Cliente</title>
+</head>
+<body>
+	<header th:replace="layout/plantilla :: header"></header>
+    <div align="center" class="container">
+		<h1>Clientes</h1>
+            <a href="/views/cliente/new" class="btn btn-success">Crear un Cliente</a ></br></br>
+            <table border="1" class="table table-striped">
+			<thead>
+				<tr>
+					<td>Codigo</td>
+					<td>Cedula</td>
+					<td>Nombre</td>
+					<td>Direccion</td>
+					<td>Estado</td>
+					<td>Tel</td>
+					<td>FAX</td>
+					<td>Email</td>
+					<td>Sexo</td>
+					<td>Acciones</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cliente : ${listaCliente}">
+					<td th:text="${cliente.CODIGOCLIENTE}"></td >
+					<td th:text="${cliente.CEDULA}"></td >
+					<td th:text="${cliente.NOMBRE}"></td >
+					<td th:text="${cliente.DIRECCION}"></td >
+					<td th:text="${cliente.CODIGOESTADO}"></td >
+					<td th:text="${cliente.TELEFONO}"></td >
+					<td th:text="${cliente.FAX}"></td >
+					<td th:text="${cliente.EMAIL}"></td >
+					<td th:text="${cliente.SEXO}"></td >
+					<td>
+						<a th:href="@{'/views/cliente/listar/' + ${cliente.CODIGOCLIENTE}}" class="btn btn-info">Editar</a>
+						&nbsp;&nbsp;&nbsp;
+						<a th:href="@{'/views/cliente/delete/' + ${cliente.CODIGOCLIENTE}}" class="btn btn-danger">Eliminar</a>
+					</td>
+				</tr >
+			</tbody>
+		</table >
+	</div >
+	<footer th:replace="layout/plantilla :: footer"></footer>
+</body>
+</html>

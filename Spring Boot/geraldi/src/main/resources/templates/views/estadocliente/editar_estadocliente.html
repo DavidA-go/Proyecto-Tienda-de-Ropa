@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <title>Actualizar</title>
+</head>
+<body>
+	<div class="container">
+		<div class="col-12 col-md-9 offset-md-1">
+			<h1>Actualización de Estado</h1>
+			<form action="#" th:action="@{/views/estadocliente/save}" th:object="${estadocliente}" method="POST">
+				<div class="col">
+					<label>Codigo:</label>
+					<input type="text" class="form-control" readonly th:field="*{CODIGO}">
+				</div>
+				<div class="col">
+					<label>Nombre:</label>
+					<input type="text" class="form-control" placeholder="Nombre del Estado" th:field="*{NOMBRE}">
+				</div>
+				<br><br>
+				<button type="submit" class="btn btn-info">Actualizar Proveedor</button >
+			</form >
+		</div>
+		
+	</div >
+	       <footer></footer>
+</body>
+</html>

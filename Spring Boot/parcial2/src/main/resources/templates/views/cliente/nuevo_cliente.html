@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <title>Crear Cliente</title>
+</head>
+<body>
+    <div class="container">
+        <div class="col-12 col-md-9 offset-md-1">
+            <h1>Crear Cliente</h1>
+            <form action="#" th:action="@{/views/cliente/save}" th:object="${cliente}" method="POST">
+                <div class="col">
+                    <label>Codigo del cliente:</label>
+                    <input type="text" class="form-control" th:field="*{CODIGOCLIENTE}">
+                </div>
+                <div class="col">
+                    <label>Cedula:</label>
+                    <input type="text" class="form-control" placeholder="ingrese la cedula" th:field="*{CEDULA}">
+                </div>
+                <div class="col">
+                    <label>Nombre:</label>
+                    <input type="text" class="form-control" placeholder="Nombre del Cliente" th:field="*{NOMBRE}">
+                </div>
+                <div class="col">
+                    <label>Direccion:</label>
+                    <input type="text" class="form-control" placeholder="Direccion" th:field="*{DIRECCION}">
+                </div>
+
+                <div class="form-group row">
+					<label class="col-lg-3 col-form-label form-control-label">Codigo tipo de cliente:</label>
+					<div class="col-lg-9">
+					<select class="form-control" th:field="*{CODIGOTIPOCLIENTE}" >
+						<option value="0">-- Seleccione --</option>
+						<option th:each="tipocliente: ${listaTiposCliente}" th:value="${tipocliente.CODIGO}" th:text="${tipocliente.NOMBRE}">
+						</option>
+					</select>
+					</div>
+				</div>
+                <div class="col">
+                    <label>Estado:</label>
+                    <input type="text" class="form-control" placeholder="Estado" th:field="*{CODIGOESTADO}">
+                </div>
+                <div class="col">
+                    <label>TEL:</label>
+                    <input type="text" class="form-control" placeholder="telefono" th:field="*{TELEFONO}">
+                </div>
+                <div class="col">
+                    <label>FAX:</label>
+                    <input type="text" class="form-control" placeholder="FAX" th:field="*{FAX}">
+                </div>
+                <div class="col">
+                    <label>Email:</label>
+                    <input type="text" class="form-control" placeholder="Email" th:field="*{EMAIL}">
+                </div>
+                <div class="col">
+                    <label>Fecha de Nacimiento:</label>
+                    <input type="text" class="form-control" placeholder="Fecha de nacimiento" th:field="*{FECHANACIMIENTO}">
+                </div>
+                <div class="col">
+                    <label>Sexo</label>
+                    <input type="text" class="form-control" placeholder="sexo" th:field="*{SEXO}">
+                </div>
+                <br><br>
+                <button type="submit" class="btn btn-primary">Crear Cliente</button >
+            </form >
+        </div>
+    </div >
+    <footer></footer>
+</body>
+</html>

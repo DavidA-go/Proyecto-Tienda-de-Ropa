@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <title>Editar Producto</title>
+</head>
+<body>
+	<div class="container">
+		<div class="col-12 col-md-9 offset-md-1">
+			<h1>Edición de Producto</h1>
+			<form action="#" th:action="@{/views/productos/save}" th:object="${producto}" method="POST">
+				<div class="col">
+					<label>Código:</label>
+					<input type="text" class="form-control" readonly th:field="*{codigo}">
+				</div>
+				<div class="col">
+					<label>Nombre:</label>
+					<input type="text" class="form-control" placeholder="Nombre Producto" th:field="*{nombre}">
+				</div>
+				<div class="form-group row">
+					<labelclass="col-lg-3 col-form-label form-control-label">Proveedor</label>
+					<div class="col-lg-9">
+					<select class="form-control" th:field="*{nitproveedor}" >
+						<option value="0">-- Seleccione --</option>
+						<option th:each="provee: ${listaProveedores}" th:value="${provee.nit}" th:text="${provee.nombre}">
+						</option>
+					</select>
+					</div>
+				</div>
+				<div class="col">
+					<label>Precio de Compra:</label>
+					<input type="text" class="form-control" placeholder="Precio Compra" th:field="*{precio_compra}">
+				</div>
+				<div class="col">
+					<label>Iva:</label>
+					<input type="text" class="form-control" placeholder="Iva" th:field="*{iva}">
+				</div>
+				<div class="col">
+					<label>Precio Venta:</label>
+					<input type="text" class="form-control" placeholder="Teléfono Proveedor" th:field="*{precio_venta}">
+				</div>
+				<br>
+				<button type="submit" class="btn btn-primary">Actualizar Producto</button >
+			</form >
+		</div>
+		
+	</div >
+        <footer></footer>
+</body>
+</html>

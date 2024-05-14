@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="layout/plantilla :: head">
+    <title>Lista de Productos</title>
+</head>
+<body>
+	<header th:replace="layout/plantilla :: header"></header>
+    <div align="center" class="container">
+		<h1>Listado de Productos</h1>
+            <a href="/views/productos/new" class="btn btn-success">Crear un Producto</a ></br></br>
+            <table border="1" class="table table-hoover">
+			<thead>
+				<tr>
+					<td>Código</td>
+					<td>Nombre</td>
+					<td>Nit Proveedor</td>
+					<td>Precio Compra</td>
+					<td>Iva</td>
+					<td>Precio Venta</td>
+					<td>Acciones</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="producto: ${listaProductos}">
+					<td th:text="${producto.codigo}"></td >
+					<td th:text="${producto.nombre}"></td >
+					<td th:text="${producto.nitproveedor.nombre}"></td >
+					<td th:text="${producto.precio_compra}"></td >
+					<td th:text="${producto.iva}"></td >
+					<td th:text="${producto.precio_venta}"></td>
+					<td>
+						<a th:href="@{'/views/productos/listar/' + ${producto.codigo}}" class="btn btn-info">Editar</a>
+						<a th:href="@{'/views/productos/delete/' + ${producto.codigo}}" class="btn btn-danger">Eliminar</a>
+					</td>
+				</tr >
+			</tbody>
+		</table >
+	</div >
+	<footer th:replace="layout/plantilla :: footer"></footer>
+</body>
+</html>
